@@ -1,4 +1,4 @@
-# Watchtower-AI-Security-Operations-Detection-Engineering-Platform
+# Watchtower-AI Security Operations Detection Engineering Platform
 
 An end-to-end, AI-powered Security Operations Center (SOC) platform built for real-time threat detection, log analysis, and automated alerting -mapped to the MITRE ATT&CK framework.
 

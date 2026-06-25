@@ -1,6 +1,8 @@
 # Watchtower
 
 An end-to-end, AI-powered Security Operations Center (SOC) platform built for real-time threat detection, log analysis, and automated alerting -mapped to the MITRE ATT&CK framework.
+![Uploading ChatGPT Image Jun 25, 2026, 07_06_42 PM.png…]()
+
 
 ## Overview
 

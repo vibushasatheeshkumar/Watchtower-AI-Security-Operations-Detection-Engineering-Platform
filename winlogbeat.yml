@@ -1,0 +1,65 @@
+```yaml
+# ==========================================
+# Watchtower - Winlogbeat Configuration
+# ==========================================
+
+winlogbeat.event_logs:
+
+  # Windows Security Events
+  - name: Security
+
+  # Sysmon Operational Logs
+  - name: Microsoft-Windows-Sysmon/Operational
+
+# ==========================================
+# Elasticsearch Output
+# ==========================================
+
+output.elasticsearch:
+  hosts: ["http://localhost:9200"]
+
+# ==========================================
+# Kibana Configuration
+# ==========================================
+
+setup.kibana:
+  host: "http://localhost:5601"
+
+# ==========================================
+# Index Configuration
+# ==========================================
+
+setup.ilm.enabled: true
+
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+
+# ==========================================
+# Logging
+# ==========================================
+
+logging.level: info
+logging.to_files: true
+
+logging.files:
+  path: C:/ProgramData/winlogbeat/Logs
+  name: winlogbeat
+  keepfiles: 7
+  permissions: 0644
+
+# ==========================================
+# Processors
+# ==========================================
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_process_metadata:
+      match_pids: [process.pid]
+  - add_fields:
+      target: project
+      fields:
+        name: Watchtower
+        platform: Detection Engineering
+```

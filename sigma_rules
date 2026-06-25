@@ -1,0 +1,143 @@
+```yaml
+# user_account_creation.yml
+title: User Account Created
+id: watchtower-001
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4720
+  condition: selection
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1136
+
+---
+
+# user_account_deleted.yml
+title: User Account Deleted
+id: watchtower-002
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4726
+  condition: selection
+level: medium
+tags:
+  - attack.impact
+  - attack.t1531
+
+---
+
+# admin_group_addition.yml
+title: User Added To Administrators Group
+id: watchtower-003
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4732
+  condition: selection
+level: high
+tags:
+  - attack.persistence
+  - attack.t1098
+
+---
+
+# special_privileges_assigned.yml
+title: Special Privileges Assigned To New Logon
+id: watchtower-004
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4672
+  condition: selection
+level: high
+tags:
+  - attack.defense_evasion
+  - attack.t1078
+
+---
+
+# audit_logs_cleared.yml
+title: Windows Audit Logs Cleared
+id: watchtower-005
+status: experimental
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 1102
+  condition: selection
+level: critical
+tags:
+  - attack.defense_evasion
+  - attack.t1070.001
+
+---
+
+# process_creation.yml
+title: Process Creation Detected
+id: watchtower-006
+status: experimental
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 1
+  condition: selection
+level: low
+tags:
+  - attack.execution
+  - attack.t1059
+
+---
+
+# network_connection.yml
+title: Network Connection Detected
+id: watchtower-007
+status: experimental
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 3
+  condition: selection
+level: low
+tags:
+  - attack.command_and_control
+  - attack.t1071
+
+---
+
+# registry_modification.yml
+title: Registry Modification Detected
+id: watchtower-008
+status: experimental
+logsource:
+  product: windows
+  service: sysmon
+detection:
+  selection:
+    EventID: 13
+  condition: selection
+level: medium
+tags:
+  - attack.defense_evasion
+  - attack.t1112
+```
